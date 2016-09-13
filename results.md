@@ -7,17 +7,10 @@ you can start it with `docker-compose up -d web`.
 
 ## enable proxy_cache in nginx.conf
 
-make sure you have created /tmp/nginx in your container, and change owner to user `nginx`.
-
-```
-mkdir -p /tmp/nginx
-chown nginx /tmp/nginx
-```
-
 ```
 http {
 	...
-	proxy_cache_path /tmp/nginx/my_cache levels=1:2 keys_zone=my_cache:10m max_size=10g inactive=1m 
+	proxy_cache_path /tmp/my_cache levels=1:2 keys_zone=my_cache:10m max_size=10g inactive=1m 
                      use_temp_path=off;
 
     upstream backend {
