@@ -1,5 +1,8 @@
 var koa = require('koa');
 var app = module.exports = koa();
+var logger = require('koa-logger');
+
+app.use(logger());
 
 app.use(function* () {
   yield new Promise((resolve, reject) => {
